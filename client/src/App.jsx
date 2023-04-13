@@ -1,10 +1,9 @@
-import { Navbar, SignInForm, SignUpForm } from "./Components";
+import { Navbar, SignInForm, SignUpForm, About, Features } from "./Components";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <SignUpForm />
     </div>
   );
 }
