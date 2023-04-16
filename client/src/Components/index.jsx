@@ -5,5 +5,16 @@ import About from "./About/About";
 import Features from "./Features/Features";
 import AddTask from "./AddTask/Addtask";
 import EditUser from "./EditUser/Edituser";
-
-export { Navbar, SignInForm, SignUpForm, About, Features, AddTask, EditUser };
+import Dashboard from "./Dashboard/Dashboard";
+import Title from "./Title/Title";
+export {
+  Navbar,
+  SignInForm,
+  SignUpForm,
+  About,
+  Features,
+  AddTask,
+  EditUser,
+  Dashboard,
+  Title,
+};

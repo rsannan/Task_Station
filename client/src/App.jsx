@@ -6,13 +6,15 @@ import {
   Features,
   AddTask,
   EditUser,
+  Dashboard,
+  Title,
 } from "./Components";
 
 function App() {
   return (
     <div>
       <Navbar />
-      <EditUser />
+      <Title />
     </div>
   );
 }

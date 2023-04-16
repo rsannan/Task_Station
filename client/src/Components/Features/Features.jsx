@@ -18,9 +18,7 @@ export default function Features() {
                 </div>
                 <div className="col-xl-7 d-flex align-items-center">
                   <div className="card-body">
-                    <h4 className="card-title">
-                      One station for all your tasks
-                    </h4>
+                    <h4 className="card-title">Project Management</h4>
                     <p>
                       Have all your tasks in one place. No need for 1000 apps
                       have it all in one place.
