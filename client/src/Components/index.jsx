@@ -7,6 +7,7 @@ import AddTask from "./AddTask/Addtask";
 import EditUser from "./EditUser/Edituser";
 import Dashboard from "./Dashboard/Dashboard";
 import Title from "./Title/Title";
+import Footer from "./Footer/Footer";
 export {
   Navbar,
   SignInForm,
@@ -17,4 +18,5 @@ export {
   EditUser,
   Dashboard,
   Title,
+  Footer,
 };

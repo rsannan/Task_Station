@@ -1,4 +1,4 @@
-import { Navbar, Title, Features, About } from "../../Components";
+import { Navbar, Title, Features, About, Footer } from "../../Components";
 export default function Landing() {
   return (
     <>
@@ -6,6 +6,7 @@ export default function Landing() {
       <Title />
       <Features />
       <About />
+      <Footer />
     </>
   );
 }
