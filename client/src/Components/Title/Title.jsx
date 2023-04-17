@@ -15,7 +15,7 @@ export default function Title() {
           <a
             data-aos="fade-up"
             data-aos-delay="200"
-            href="#"
+            href="/signup"
             className="btn-get-started"
           >
             Get Started

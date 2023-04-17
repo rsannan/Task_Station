@@ -29,18 +29,18 @@ export default function About() {
               </div>
               <h3>Reginald Shawn Annan</h3>
               <p></p>
-              <a href="https://twitter.com/Rs_annan" class="readmore">
+              <a href="https://twitter.com/Rs_annan" className="readmore">
                 Twitter
               </a>
               <a
                 href="https://github.com/rsannan?tab=repositories"
-                class="readmore"
+                className="readmore"
               >
                 Github
               </a>
               <a
                 href="https://www.linkedin.com/in/reginald-shawn-annan-50700b1b7"
-                class="readmore"
+                className="readmore"
               >
                 LinkedIn
               </a>
@@ -58,15 +58,15 @@ export default function About() {
               </div>
               <h3>Isaac Takiyara Kanyiti</h3>
               <p></p>
-              <a href="#" class="readmore">
+              <a href="#" className="readmore">
                 Twitter
               </a>
-              <a href="https://github.com/Isaac-web" class="readmore">
+              <a href="https://github.com/Isaac-web" className="readmore">
                 Github
               </a>
               <a
                 href="https://www.linkedin.com/in/isaac-takiyara-kanyiti-b38086193"
-                class="readmore"
+                className="readmore"
               >
                 LinkedIn
               </a>
@@ -89,7 +89,7 @@ export default function About() {
               </p>
               <a
                 href="https://github.com/rsannan/Task_Station"
-                class="readmore"
+                className="readmore"
               >
                 Learn more <i className="bi bi-arrow-right"></i>
               </a>
