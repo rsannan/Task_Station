@@ -1,20 +1,9 @@
-import {
-  Navbar,
-  SignInForm,
-  SignUpForm,
-  About,
-  Features,
-  AddTask,
-  EditUser,
-  Dashboard,
-  Title,
-} from "./Components";
+import { Landing } from "./Pages";
 
 function App() {
   return (
     <div>
-      <Navbar />
-      <Title />
+      <Landing />
     </div>
   );
 }
