@@ -1,9 +1,9 @@
-import { Landing } from "./Pages";
+import { Landing, Userpage, Signin, Signup, Task } from "./Pages";
 
 function App() {
   return (
     <div>
-      <Landing />
+      <Task />
     </div>
   );
 }

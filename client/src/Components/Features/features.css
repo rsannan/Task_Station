@@ -2,6 +2,10 @@
   --color-secondary: #52565e;
 }
 
+.constructions {
+  padding-bottom: 5rem;
+  background-color: #cbf1f5;
+}
 .constructions .card-item {
   border: 1px solid rgba(82, 86, 94, 0.2);
   background: #fff;

@@ -2,10 +2,7 @@ import "./title.css";
 import img1 from "../../assets/signin1.jpg";
 export default function Title() {
   return (
-    <div
-      className="vw-100"
-      style={{ background: "linear-gradient(#0B2447, #DDFFBB)" }}
-    >
+    <div className="vw-100" style={{ backgroundColor: "#E3FDFD" }}>
       <div className="container row ms-auto me-auto">
         <div className="col-md-6">
           <h1 className="title">
