@@ -10,7 +10,7 @@ export default function Navbar() {
           </a>
           <ul className="navbar-nav">
             <li className="navbar-item">
-              <a href="/" className="nav-link active text-white">
+              <a href="/addtask" className="nav-link active text-white">
                 Home
               </a>
             </li>

@@ -1,6 +1,18 @@
+import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import "./Addtask.css";
+import reducer from "../../Pages/reducer";
+import { ON_CHANGE } from "../../Pages/actions";
+const defaultState = {
+  user: { firstName: "", lastName: "", email: "", password: "" },
+  task: { title: "", description: "", date: "", time: "", urgency: "" },
+};
 export default function AddTask() {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
+  function onChange(e) {
+    dispatch({ type: ON_CHANGE, payload: { e } });
+  }
   return (
     <div
       className="container rounded mt-5 mb-5"
@@ -8,18 +20,16 @@ export default function AddTask() {
     >
       <div className="row">
         <div className="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <div className="d-flex flex-column align-items-center text-center p-3 py-5">
             <img
-              class="rounded-circle mt-5"
+              className="rounded-circle mt-5"
               width="150px"
               src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
             />
-            <span class="font-weight-bold" id="acname">
-              Name Place holder
+            <span className="font-weight-bold">
+              {state.user.firstName} {state.user.lastName}
             </span>
-            <span class="text-black-50" id="acemail">
-              email Placeholder
-            </span>
+            <span className="text-black-50">{state.user.email}</span>
             <span> </span>
           </div>
         </div>
@@ -31,47 +41,55 @@ export default function AddTask() {
             <form>
               <div className="row mt-2">
                 <div className="col-md-12">
-                  <label class="labels">Title</label>
+                  <label className="labels">Title</label>
                   <input
                     type="text"
-                    class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    className="form-control"
+                    name="title"
+                    value={state.task.title}
+                    id="attitle"
+                    onChange={onChange}
                   />
                 </div>
               </div>
 
               <div className="row mt-2">
                 <div className="col-md-12">
-                  <label class="labels">Description</label>
+                  <label className="labels">Description</label>
                   <input
                     type="text"
-                    class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    className="form-control"
+                    name="description"
+                    value={state.task.description}
+                    id="atdescription"
+                    onChange={onChange}
                   />
                 </div>
               </div>
 
               <div className="row mt-2">
                 <div className="col-md-6">
-                  <label class="labels">Date due</label>
+                  <label className="labels">Date due</label>
                   <input
                     type="date"
-                    class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    className="form-control"
+                    onChange={onChange}
+                    value={state.task.value}
+                    name="date"
+                    id="atdate"
                   />
                 </div>
               </div>
               <div className="row mt-2">
                 <div className="col-md-6">
-                  <label class="labels">Time due</label>
+                  <label className="labels">Time due</label>
                   <input
                     type="time"
-                    class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    className="form-control"
+                    name="time"
+                    value={state.task.time}
+                    id="attime"
+                    onChange={onChange}
                   />
                 </div>
               </div>
@@ -79,13 +97,21 @@ export default function AddTask() {
               <div className="row mt-3">
                 <div className="col-md-6">
                   <label className="labels">Urgency</label>
-                  <select class="form-control methoddp" id="methodsel">
-                    <option value="0" disabled selected hidden>
+                  <select
+                    className="form-control"
+                    id="urgencysel"
+                    defaultValue={0}
+                    name="urgency"
+                    onChange={onChange}
+                  >
+                    <option value="0" disabled hidden>
                       Choose a Level
                     </option>
-                    <option value="1">Low Priority</option>
-                    <option value="2">Mid-level Priority</option>
-                    <option value="3">High Priority</option>
+                    <option value="Low Priority">Low Priority</option>
+                    <option value="Mid-level Priority">
+                      Mid-level Priority
+                    </option>
+                    <option value="High Priority">High Priority</option>
                   </select>
                 </div>
               </div>
@@ -96,7 +122,7 @@ export default function AddTask() {
                   type="submit"
                   id="acbtn"
                 >
-                  <i class="fa-solid fa-floppy-disk"></i> Save Task
+                  <i className="fa-solid fa-floppy-disk"></i> Save Task
                 </button>
               </div>
             </form>

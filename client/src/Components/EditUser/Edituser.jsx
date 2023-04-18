@@ -1,4 +1,15 @@
+import { useReducer } from "react";
+import reducer from "../../Pages/reducer";
+import { ON_CHANGE } from "../../Pages/actions";
+const defaultState = {
+  user: { firstName: "", lastName: "", email: "", password: "" },
+};
 export default function EditUser() {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+
+  function onChange(e) {
+    dispatch({ type: ON_CHANGE, payload: { e } });
+  }
   return (
     <div
       className="container rounded mt-5 mb-5"
@@ -12,12 +23,10 @@ export default function EditUser() {
               width="150px"
               src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
             />
-            <span class="font-weight-bold" id="acname">
-              Name Place holder
+            <span class="font-weight-bold">
+              {state.user.firstName} {state.user.lastName}
             </span>
-            <span class="text-black-50" id="acemail">
-              email Placeholder
-            </span>
+            <span class="text-black-50">{state.user.email}</span>
             <span> </span>
           </div>
         </div>
@@ -33,8 +42,10 @@ export default function EditUser() {
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    name="firstName"
+                    value={state.user.firstName}
+                    id="edfname"
+                    onChange={onChange}
                   />
                 </div>
               </div>
@@ -45,8 +56,10 @@ export default function EditUser() {
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    name="lastName"
+                    value={state.user.lastName}
+                    id="edfname"
+                    onChange={onChange}
                   />
                 </div>
               </div>
@@ -57,8 +70,10 @@ export default function EditUser() {
                   <input
                     type="email"
                     class="form-control"
-                    placeholder="Title"
-                    id="actitle"
+                    name="email"
+                    value={state.user.email}
+                    id="edemail"
+                    onChange={onChange}
                   />
                 </div>
               </div>

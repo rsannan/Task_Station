@@ -1,6 +1,17 @@
+import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import siginimg from "../../assets/signin1.jpg";
+import reducer from "../../Pages/reducer";
+import { ON_CHANGE } from "../../Pages/actions";
+
+const defaultState = {
+  user: { firstName: "", lastName: "", email: "", password: "" },
+};
 export default function SignInForm() {
+  const [state, dispatch] = useReducer(reducer, defaultState);
+  function onChange(e) {
+    dispatch({ type: ON_CHANGE, payload: { e } });
+  }
   return (
     <section className="vh-100" style={{ backgroundColor: "#fff" }}>
       <div className="container py-5 h-100">
@@ -40,7 +51,10 @@ export default function SignInForm() {
                         <input
                           type="email"
                           id="siemail"
+                          value={state.user.email}
+                          name="email"
                           className="form-control form-control-lg"
+                          onChange={onChange}
                         />
                       </div>
                       <div className="form-outline mb-4">
@@ -50,7 +64,10 @@ export default function SignInForm() {
                         <input
                           type="password"
                           id="sipassword"
+                          value={state.user.password}
+                          name="password"
                           className="form-control form-control-lg"
+                          onChange={onChange}
                         />
                       </div>
                       <div className="pt-1 mb-4 d-grid gap-2">
