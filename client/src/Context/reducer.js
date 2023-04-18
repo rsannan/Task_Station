@@ -5,7 +5,9 @@ import {
   EDIT_USER,
   ON_CHANGE,
   REMOVE_TASK,
+  SIGN_UP,
 } from "./actions";
+import { useEffect } from "react";
 
 export default function reducer(state, action) {
   if (action.type === ON_CHANGE) {
@@ -21,5 +23,12 @@ export default function reducer(state, action) {
       ...state,
       user: { ...state.user, [event.target.name]: event.target.value },
     };
+  }
+  if (action.type === SIGN_UP) {
+    const event = action.payload.e;
+    event.preventDefault();
+    // POST DATA
+    console.log(state);
+    return state;
   }
 }

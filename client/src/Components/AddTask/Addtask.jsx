@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import "./Addtask.css";
-import reducer from "../../Pages/reducer";
-import { ON_CHANGE } from "../../Pages/actions";
+import reducer from "../../Context/reducer";
+import { ON_CHANGE } from "../../Context/actions";
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
   task: { title: "", description: "", date: "", time: "", urgency: "" },

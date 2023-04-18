@@ -1,8 +1,9 @@
 import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import img from "../../assets/signup.jpg";
-import reducer from "../../Pages/reducer";
-import { ON_CHANGE } from "../../Pages/actions";
+import reducer from "../../Context/reducer";
+import { ON_CHANGE, SIGN_UP } from "../../Context/actions";
+import { useNavigate } from "react-router-dom";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
@@ -10,9 +11,15 @@ const defaultState = {
 
 export default function SignUpForm() {
   const [state, dispatch] = useReducer(reducer, defaultState);
+  const navigate = useNavigate;
 
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
+  }
+  async function onSubmit(e) {
+    await dispatch({ type: SIGN_UP, payload: { e } }).then(() => {
+      navigate("/login");
+    });
   }
   return (
     <section className="vh-100" style={{ backgroundColor: "#fff" }}>
@@ -35,7 +42,7 @@ export default function SignUpForm() {
                   style={{ backgroundColor: "#9A616D" }}
                 >
                   <div className="card-body p-4 p-lg-5 text-black">
-                    <form>
+                    <form onSubmit={onSubmit}>
                       <div className="d-flex align-items-center mb-3 pb-1">
                         <img src={logo} />
                         <span className="h1 fw-bold mb-0">Task-Station</span>

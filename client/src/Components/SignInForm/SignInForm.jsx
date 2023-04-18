@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import siginimg from "../../assets/signin1.jpg";
-import reducer from "../../Pages/reducer";
-import { ON_CHANGE } from "../../Pages/actions";
+import reducer from "../../Context/reducer";
+import { ON_CHANGE } from "../../Context/actions";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
