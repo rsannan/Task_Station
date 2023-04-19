@@ -7,7 +7,7 @@ import {
   REMOVE_TASK,
   SIGN_UP,
 } from "./actions";
-import { useEffect } from "react";
+import { useAuthDispatch } from "./context";
 
 export default function reducer(state, action) {
   if (action.type === ON_CHANGE) {
@@ -27,8 +27,31 @@ export default function reducer(state, action) {
   if (action.type === SIGN_UP) {
     const event = action.payload.e;
     event.preventDefault();
-    // POST DATA
-    console.log(state);
+    // POST DATA AND RETURN TO SIGN UP PAGE
+    return state;
+  }
+
+  if (action.type === LOGIN) {
+    const event = action.payload.e;
+    event.preventDefault();
+    const email = event.target[0].value;
+    // const dispatch = useAuthDispatch();
+    // // GET USER DATA FROM API
+
+    // const data = {};
+    // dispatch({ type: LOGIN, payload: data });
+    return state;
+  }
+  if (action.type === EDIT_USER) {
+    const event = action.payload.e;
+    event.preventDefault();
+    // POST NEW USER DATA
+    return state;
+  }
+  if (action.type === ADD_TASK) {
+    const event = action.payload.e;
+    event.preventDefault();
+    // POST TASK DATA
     return state;
   }
 }

@@ -17,9 +17,7 @@ export default function SignUpForm() {
     dispatch({ type: ON_CHANGE, payload: { e } });
   }
   async function onSubmit(e) {
-    await dispatch({ type: SIGN_UP, payload: { e } }).then(() => {
-      navigate("/login");
-    });
+    dispatch({ type: SIGN_UP, payload: { e } });
   }
   return (
     <section className="vh-100" style={{ backgroundColor: "#fff" }}>

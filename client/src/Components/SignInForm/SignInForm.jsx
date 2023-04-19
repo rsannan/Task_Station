@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import siginimg from "../../assets/signin1.jpg";
 import reducer from "../../Context/reducer";
-import { ON_CHANGE } from "../../Context/actions";
+import { LOGIN, ON_CHANGE } from "../../Context/actions";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
@@ -11,6 +11,10 @@ export default function SignInForm() {
   const [state, dispatch] = useReducer(reducer, defaultState);
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
+  }
+
+  function onSubmit(e) {
+    dispatch({ type: LOGIN, payload: { e } });
   }
   return (
     <section className="vh-100" style={{ backgroundColor: "#fff" }}>
@@ -33,7 +37,7 @@ export default function SignInForm() {
                   style={{ backgroundColor: "#9A616D" }}
                 >
                   <div className="card-body p-4 p-lg-5 text-black">
-                    <form>
+                    <form onSubmit={onSubmit}>
                       <div className="d-flex align-items-center mb-3 pb-1">
                         <img src={logo} />
                         <span className="h1 fw-bold mb-0">Task-Station</span>

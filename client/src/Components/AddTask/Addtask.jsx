@@ -2,7 +2,7 @@ import { useReducer } from "react";
 import logo from "../../assets/logo.png";
 import "./Addtask.css";
 import reducer from "../../Context/reducer";
-import { ON_CHANGE } from "../../Context/actions";
+import { ON_CHANGE, ADD_TASK } from "../../Context/actions";
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
   task: { title: "", description: "", date: "", time: "", urgency: "" },
@@ -12,6 +12,9 @@ export default function AddTask() {
 
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
+  }
+  function onSubmit(e) {
+    dispatch({ type: ADD_TASK, payload: { e } });
   }
   return (
     <div

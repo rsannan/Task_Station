@@ -10,7 +10,7 @@ export default function Navbar() {
           </a>
           <ul className="navbar-nav">
             <li className="navbar-item">
-              <a href="/signup" className="nav-link active text-white">
+              <a href="/edituser" className="nav-link active text-white">
                 Home
               </a>
             </li>
