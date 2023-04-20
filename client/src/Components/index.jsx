@@ -8,6 +8,7 @@ import EditUser from "./EditUser/Edituser";
 import Dashboard from "./Dashboard/Dashboard";
 import Title from "./Title/Title";
 import Footer from "./Footer/Footer";
+import LandingNavbar from "./Navbar/LandingNavbar";
 export {
   Navbar,
   SignInForm,
@@ -19,4 +20,5 @@ export {
   Dashboard,
   Title,
   Footer,
+  LandingNavbar,
 };

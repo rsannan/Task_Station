@@ -1,8 +1,15 @@
-import { Navbar, Title, Features, About, Footer } from "../../Components";
+import {
+  Navbar,
+  Title,
+  Features,
+  About,
+  Footer,
+  LandingNavbar,
+} from "../../Components";
 export default function Landing() {
   return (
     <>
-      <Navbar />
+      <LandingNavbar />
       <Title />
       <Features />
       <About />
