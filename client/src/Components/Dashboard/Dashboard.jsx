@@ -20,6 +20,26 @@ export default function Dashboard() {
           </a>
         </div>
       </div>
+      <div className="dashcard">
+        <div className="d-flex flex-row-reverse">
+          <button
+            className="btn btn-danger btn-sm rounded-0 p-2"
+            type="button"
+            data-toggle="tooltip"
+            title="Delete"
+          >
+            <i className="fa fa-trash"></i>
+          </button>
+          <button
+            className="btn btn-success btn-sm rounded-0 p-2"
+            type="button"
+            data-toggle="tooltip"
+            title="Edit"
+          >
+            <i className="fa fa-edit"></i>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

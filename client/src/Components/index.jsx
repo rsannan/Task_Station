@@ -9,6 +9,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import Title from "./Title/Title";
 import Footer from "./Footer/Footer";
 import LandingNavbar from "./Navbar/LandingNavbar";
+import SideNav from "./SideNav/SideNav";
 export {
   Navbar,
   SignInForm,
@@ -21,4 +22,5 @@ export {
   Title,
   Footer,
   LandingNavbar,
+  SideNav,
 };
