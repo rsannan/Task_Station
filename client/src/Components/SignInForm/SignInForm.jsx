@@ -1,14 +1,16 @@
 import { useReducer } from "react";
 import logo from "../../assets/logo.png";
-import siginimg from "../../assets/signin1.jpg";
 import reducer from "../../Context/reducer";
 import { LOGIN, ON_CHANGE } from "../../Context/actions";
 import { useAuthDispatch } from "../../Context/context";
+import { useNavigate } from "react-router-dom";
+import "./signin.css";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
 };
 export default function SignInForm() {
+  const navigate = useNavigate();
   const [state, dispatch] = useReducer(reducer, defaultState);
   const appDispatch = useAuthDispatch();
   function onChange(e) {
@@ -21,26 +23,18 @@ export default function SignInForm() {
     const token = "123456";
     const data = { email, token };
     appDispatch({ type: LOGIN, payload: { data } });
+    navigate("/dashboard");
   }
   return (
-    <section className="vh-100" style={{ backgroundColor: "#fff" }}>
+    <section className="vh-100 signinimg">
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col col-xl-10">
+          <div className="col col-xl-6">
             <div className="card" style={{ borderRadius: "1rem" }}>
               <div className="row g-0">
-                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                  <img
-                    src={siginimg}
-                    alt="Login Img"
-                    className="img-fluid"
-                    id="siginimg"
-                    style={{ borderRadius: "1rem 0 0 1rem", height: "100%" }}
-                  />
-                </div>
                 <div
-                  className="col-md-6 col-lg-7 d-flex align-items-center"
-                  style={{ backgroundColor: "#9A616D" }}
+                  className="d-flex align-items-center"
+                  style={{ backgroundColor: "#C7E9B0" }}
                 >
                   <div className="card-body p-4 p-lg-5 text-black">
                     <form onSubmit={onSubmit}>
@@ -94,7 +88,7 @@ export default function SignInForm() {
                       </a>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?
-                        <a href="#" style={{ color: "#393f81" }}>
+                        <a href="/signup" style={{ color: "#393f81" }}>
                           Register here
                         </a>
                       </p>

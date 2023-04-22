@@ -3,10 +3,9 @@ import logo from "../../assets/logo.png";
 import DashNav from "./DashNav";
 import StandardNav from "./StandardNav";
 
-// const state = useAuthState();
 export default function Navbar() {
-  // const { token } = state;
-  const token = "";
+  const state = useAuthState();
+  const { token } = state;
   return (
     <>
       <nav className="navbar bg-dark navbar-expand-lg">

@@ -13,8 +13,22 @@ export default function SideNav() {
             aria-current="true"
           >
             <i className="fas fa-tachometer-alt fa-fw me-3"></i>
-            <span>Work Boards</span>
+            <a
+              class="btn btn-outline-secondary"
+              data-bs-toggle="collapse"
+              href="#multiCollapseExample1"
+              role="button"
+              aria-expanded="false"
+              aria-controls="multiCollapseExample1"
+            >
+              Work Boards
+            </a>
           </a>
+          <ul class="collapse multi-collapse" id="multiCollapseExample1">
+            <li>test 1</li>
+            <li>test 1</li>
+            <li>test 1</li>
+          </ul>
           <a
             href="#"
             className="list-group-item list-group-item-action py-2 ripple"

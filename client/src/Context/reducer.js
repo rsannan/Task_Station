@@ -1,7 +1,5 @@
 import {
   ADD_TASK,
-  LOGIN,
-  LOGOUT,
   EDIT_USER,
   ON_CHANGE,
   REMOVE_TASK,
@@ -31,15 +29,6 @@ export default function reducer(state, action) {
     return state;
   }
 
-  if (action.type === LOGIN) {
-    const event = action.payload.e;
-    event.preventDefault();
-
-    // // GET USER DATA FROM API
-    // const data = {};
-
-    return state;
-  }
   if (action.type === EDIT_USER) {
     const event = action.payload.e;
     event.preventDefault();

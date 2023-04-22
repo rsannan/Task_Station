@@ -35,3 +35,19 @@
   color: var(--color-secondary);
   margin: 0;
 }
+
+.features1 {
+  background-image: url(../../assets/feature1.jpg);
+}
+
+.features2 {
+  background-image: url(../../assets/feature2.jpg);
+}
+
+.features3 {
+  background-image: url(../../assets/feature3.jpg);
+}
+
+.features4 {
+  background-image: url(../../assets/feature4.jpg);
+}

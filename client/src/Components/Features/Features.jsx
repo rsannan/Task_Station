@@ -14,7 +14,7 @@ export default function Features() {
             <div className="card-item">
               <div className="row">
                 <div className="col-xl-5">
-                  <div className="card-bg"></div>
+                  <div className="card-bg features1"></div>
                 </div>
                 <div className="col-xl-7 d-flex align-items-center">
                   <div className="card-body">
@@ -33,7 +33,7 @@ export default function Features() {
             <div className="card-item">
               <div className="row">
                 <div className="col-xl-5">
-                  <div className="card-bg"></div>
+                  <div className="card-bg features2"></div>
                 </div>
                 <div className="col-xl-7 d-flex align-items-center">
                   <div className="card-body">
@@ -53,7 +53,7 @@ export default function Features() {
             <div className="card-item">
               <div className="row">
                 <div className="col-xl-5">
-                  <div className="card-bg"></div>
+                  <div className="card-bg features3"></div>
                 </div>
                 <div className="col-xl-7 d-flex align-items-center">
                   <div className="card-body">
@@ -73,7 +73,7 @@ export default function Features() {
             <div className="card-item">
               <div className="row">
                 <div className="col-xl-5">
-                  <div className="card-bg"></div>
+                  <div className="card-bg features4"></div>
                 </div>
                 <div className="col-xl-7 d-flex align-items-center">
                   <div className="card-body">

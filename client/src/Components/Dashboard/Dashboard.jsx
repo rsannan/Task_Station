@@ -1,6 +1,8 @@
 import "./dashboard.css";
 import logo from "../../assets/addtask1.png";
 export default function Dashboard() {
+  function editTaskClick() {}
+  function removeTaskClick() {}
   return (
     <div className="dashcon">
       <div className="dashboard">

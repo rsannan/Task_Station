@@ -28,12 +28,11 @@ export const defaultState = {
 
 export function AuthReducer(state, action) {
   if (action.type === LOGOUT) {
-    return { email: "", token: "" };
+    return { ...state, email: "", token: "" };
   }
 
   if (action.type === LOGIN) {
     const data = action.payload.data;
-    console.log(data);
     return { ...state, email: data.email, token: data.token };
   }
 }
