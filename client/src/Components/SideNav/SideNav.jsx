@@ -9,7 +9,6 @@ export default function SideNav() {
       <div class="position-static">
         <div class="list-group list-group-flush mx-3 mt-4">
           <a
-            href="#"
             class="list-group-item list-group-item-action py-2 ripple"
             aria-current="true"
           >
