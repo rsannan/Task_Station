@@ -34,12 +34,10 @@ export default function reducer(state, action) {
   if (action.type === LOGIN) {
     const event = action.payload.e;
     event.preventDefault();
-    const email = event.target[0].value;
-    // const dispatch = useAuthDispatch();
-    // // GET USER DATA FROM API
 
+    // // GET USER DATA FROM API
     // const data = {};
-    // dispatch({ type: LOGIN, payload: data });
+
     return state;
   }
   if (action.type === EDIT_USER) {

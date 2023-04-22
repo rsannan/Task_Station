@@ -3,18 +3,24 @@ import logo from "../../assets/logo.png";
 import siginimg from "../../assets/signin1.jpg";
 import reducer from "../../Context/reducer";
 import { LOGIN, ON_CHANGE } from "../../Context/actions";
+import { useAuthDispatch } from "../../Context/context";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
 };
 export default function SignInForm() {
   const [state, dispatch] = useReducer(reducer, defaultState);
+  const appDispatch = useAuthDispatch();
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
   }
 
   function onSubmit(e) {
-    dispatch({ type: LOGIN, payload: { e } });
+    e.preventDefault();
+    const email = e.target[0].value;
+    const token = "123456";
+    const data = { email, token };
+    appDispatch({ type: LOGIN, payload: { data } });
   }
   return (
     <section className="vh-100" style={{ backgroundColor: "#fff" }}>
