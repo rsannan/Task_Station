@@ -17,36 +17,36 @@ export default function DashNav() {
   }
   return (
     <>
-      <div className="dropdown-center">
-        <button
-          className="btn btn-secondary dropdown-toggle"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Account Details
-        </button>
-        <ul className="dropdown-menu">
-          <li>
-            <a className="dropdown-item" onClick={dashClick}>
-              Dashboard
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" onClick={editClick}>
-              Edit User
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" onClick={logoutClick} href="/">
-              Logout
-            </a>
-          </li>
-        </ul>
-      </div>
+      <ul className="navbar-nav">
+        <a className="btn text-white me-2" onClick={dashClick}>
+          Dashboard
+        </a>
+        <div className="dropdown-center">
+          <button
+            className="btn btn-secondary dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Account Details
+          </button>
+          <ul className="dropdown-menu">
+            <li>
+              <a className="dropdown-item" onClick={editClick}>
+                Edit User
+              </a>
+            </li>
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
+            <li>
+              <a className="dropdown-item" onClick={logoutClick} href="/">
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </ul>
     </>
   );
 }

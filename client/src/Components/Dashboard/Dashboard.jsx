@@ -1,8 +1,13 @@
 import "./dashboard.css";
 import logo from "../../assets/addtask1.png";
+import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
+  const navigate = useNavigate();
   function editTaskClick() {}
   function removeTaskClick() {}
+  function addTaskClick() {
+    navigate("/addtask");
+  }
   return (
     <div className="dashcon">
       <div className="dashboard">
@@ -11,7 +16,7 @@ export default function Dashboard() {
             <a
               className="btn btn-outline-info h-100 w-100"
               role="button"
-              href="/addtask"
+              onClick={addTaskClick}
             >
               <img
                 src={logo}

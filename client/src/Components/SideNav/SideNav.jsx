@@ -25,6 +25,7 @@ export default function SideNav() {
             </a>
           </a>
           <ul class="collapse multi-collapse" id="multiCollapseExample1">
+            <li>Add board</li>
             <li>test 1</li>
             <li>test 1</li>
             <li>test 1</li>
@@ -34,14 +35,7 @@ export default function SideNav() {
             className="list-group-item list-group-item-action py-2 ripple"
           >
             <i className="fa-solid fa-plus me-3"></i>
-            <span>Add Board</span>
-          </a>
-          <a
-            href="#"
-            className="list-group-item list-group-item-action py-2 ripple"
-          >
-            <i className="fas fa-money-bill fa-fw me-3"></i>
-            <span>Sales</span>
+            <span>Lists</span>
           </a>
         </div>
       </div>
