@@ -4,7 +4,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: top;
   flex-wrap: wrap;
   flex-direction: row;
 }
@@ -15,9 +15,19 @@
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.1);
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
-  height: 350px;
   width: 250px;
 }
 .dashcon {
   margin-left: 240px;
+}
+
+.dashtitle {
+  font-family: "Inter", sans-serif;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.4);
+}
+
+.addcard {
+  font-family: "Inter", sans-serif;
 }

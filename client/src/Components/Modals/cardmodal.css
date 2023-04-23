@@ -1,0 +1,18 @@
+.modaldiv {
+  display: flex;
+  justify-content: space-between;
+  max-height: 38px;
+  min-height: 38px;
+}
+.cardlink {
+  border-radius: 3px;
+  color: var(--list-text-color);
+  display: block;
+  flex: 1 0 auto;
+  margin: 2px 0 8px 8px;
+  padding: 4px 8px;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  user-select: none;
+}

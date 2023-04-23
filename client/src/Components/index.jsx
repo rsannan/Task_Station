@@ -10,6 +10,8 @@ import Title from "./Title/Title";
 import Footer from "./Footer/Footer";
 import LandingNavbar from "./Navbar/LandingNavbar";
 import SideNav from "./SideNav/SideNav";
+import BoardModal from "./Modals/BoardModal";
+import CardModal from "./Modals/CardModal";
 export {
   Navbar,
   SignInForm,
@@ -23,4 +25,6 @@ export {
   Footer,
   LandingNavbar,
   SideNav,
+  BoardModal,
+  CardModal,
 };

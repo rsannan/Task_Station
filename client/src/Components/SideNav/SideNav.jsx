@@ -1,6 +1,10 @@
 import "./sidenav.css";
+import BoardModal from "../Modals/BoardModal";
 
 export default function SideNav() {
+  function boardOnClick() {
+    return;
+  }
   return (
     <nav
       id="sidebarMenu"
@@ -16,27 +20,22 @@ export default function SideNav() {
             <a
               class="btn btn-outline-secondary"
               data-bs-toggle="collapse"
-              href="#multiCollapseExample1"
+              href="#workBoards"
               role="button"
               aria-expanded="false"
-              aria-controls="multiCollapseExample1"
+              aria-controls="workBoards"
             >
               Work Boards
             </a>
           </a>
-          <ul class="collapse multi-collapse" id="multiCollapseExample1">
-            <li>Add board</li>
+          <ul class="collapse multi-collapse" id="workBoards">
+            <li className="my-3">
+              <BoardModal />
+            </li>
             <li>test 1</li>
             <li>test 1</li>
             <li>test 1</li>
           </ul>
-          <a
-            href="#"
-            className="list-group-item list-group-item-action py-2 ripple"
-          >
-            <i className="fa-solid fa-plus me-3"></i>
-            <span>Lists</span>
-          </a>
         </div>
       </div>
     </nav>
