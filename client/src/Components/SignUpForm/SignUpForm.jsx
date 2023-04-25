@@ -21,7 +21,7 @@ export default function SignUpForm() {
       const response = await axios.post(url, data, { headers });
       navigate("/login");
     } catch (error) {
-      console.log(error.response.data.message);
+      alert(error.response.data.message);
     }
   }
 

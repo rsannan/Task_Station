@@ -25,8 +25,8 @@ export default function LandingNavbar() {
               </a>
             </li>
             <li className="navbar-item ms-4">
-              <a href="/signup" className="nav-link  text-white">
-                Sign-Up
+              <a href="/login" className="nav-link  text-white">
+                Sign-In
               </a>
             </li>
           </ul>
