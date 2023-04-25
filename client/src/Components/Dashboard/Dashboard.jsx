@@ -48,6 +48,11 @@ export default function Dashboard() {
   return (
     <div className="dashcon">
       <div className="dashboard">
+        <div>
+          <div className="dashcard">
+            <h5 className="p-2">Current Board: {state.boardName}</h5>
+          </div>
+        </div>
         {lists.map((list) => {
           const { name, position, _id } = list;
           return (

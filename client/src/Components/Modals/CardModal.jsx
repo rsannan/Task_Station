@@ -2,7 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import "./cardmodal.css";
 import axios from "axios";
-import { useAuthState } from "../../Context/context";
+import { useAuthState, useAuthDispatch } from "../../Context/context";
 
 export default function CardModal(props) {
   const [show, setShow] = useState(false);
@@ -10,6 +10,7 @@ export default function CardModal(props) {
   const handleShow = () => setShow(true);
   const { listId, position } = props;
   const appState = useAuthState();
+  const appDispatch = useAuthDispatch();
   function handleOnSubmit(e) {
     e.preventDefault();
     const url = "http://127.0.0.1:8000/api/cards";
@@ -33,6 +34,7 @@ export default function CardModal(props) {
     };
     req();
     setShow(false);
+    appDispatch({ type: DONE });
   }
   return (
     <>

@@ -26,6 +26,7 @@ let token = sessionStorage.getItem("token")
 export const defaultState = {
   token: token,
   boardId: "",
+  boardName: "",
 };
 
 export function AuthReducer(state, action) {
@@ -40,7 +41,8 @@ export function AuthReducer(state, action) {
   }
   if (action.type === CHANGE_BOARD) {
     const boardId = action.payload._id;
-    return { ...state, boardId };
+    const boardName = action.payload.name;
+    return { ...state, boardId, boardName };
   }
   if (action.type === DONE) {
     return { ...state };

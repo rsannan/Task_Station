@@ -35,3 +35,9 @@
 #workBoards {
   list-style-type: none;
 }
+
+.aname {
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  color: black;
+}

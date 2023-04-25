@@ -2,6 +2,7 @@ import { Button, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useAuthDispatch, useAuthState } from "../../Context/context";
 import axios from "axios";
+import { DONE } from "../../Context/actions";
 export default function BoardModal() {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState({});
@@ -10,6 +11,7 @@ export default function BoardModal() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const appState = useAuthState();
+  const appDispatch = useAuthDispatch();
 
   const token = appState.token;
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function BoardModal() {
       await axios.post(url, data);
     };
     req();
-
+    appDispatch({ type: DONE });
     setShow(false);
   };
   const handleOnchange = (e) => {

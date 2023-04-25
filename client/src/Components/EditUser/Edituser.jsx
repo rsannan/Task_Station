@@ -1,19 +1,55 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import reducer from "../../Context/reducer";
+import axios from "axios";
 import { ON_CHANGE, EDIT_USER } from "../../Context/actions";
-
-const defaultState = {
-  user: { firstName: "", lastName: "", email: "", password: "" },
-};
+import { useAuthState } from "../../Context/context";
+import { useNavigate } from "react-router-dom";
 export default function EditUser() {
-  const [state, dispatch] = useReducer(reducer, defaultState);
-
-  function onChange(e) {
-    dispatch({ type: ON_CHANGE, payload: { e } });
-  }
-
+  const [user, setUser] = useState({});
+  const appState = useAuthState();
+  const navigate = useNavigate();
+  const token = appState.token;
+  useEffect(() => {
+    async function getUser() {
+      try {
+        const url = "http://127.0.0.1:8000/api/users/me";
+        const config = {
+          headers: { "x-auth-token": token },
+        };
+        const response = await axios.get(url, config);
+        const data = await response.data;
+        setUser(data.user);
+      } catch (error) {}
+    }
+    getUser();
+  }, []);
   function onSubmit(e) {
-    dispatch({ type: EDIT_USER, payload: { e } });
+    e.preventDefault();
+    const url = "http://127.0.0.1:8000/api/users/update";
+    const data = {
+      firstname: e.target.firstName.value,
+      lastname: e.target.lastName.value,
+    };
+    if (data.firstname === "") {
+      alert("firstname cannot be empty");
+      return;
+    }
+    if (data.lastname === "") {
+      alert("lastname cannot be empty");
+      return;
+    }
+    const config = {
+      headers: { "x-auth-token": token, "Content-Type": "application/json" },
+    };
+    const req = async () => {
+      await axios.patch(url, data, config);
+    };
+    try {
+      req();
+      // navigate("/dahboard");
+    } catch (error) {
+      alert(error.data);
+    }
   }
   return (
     <div
@@ -29,9 +65,9 @@ export default function EditUser() {
               src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
             />
             <span className="font-weight-bold">
-              {state.user.firstName} {state.user.lastName}
+              {user.firstname} {user.lastname}
             </span>
-            <span className="text-black-50">{state.user.email}</span>
+            <span className="text-black-50">{user.username}</span>
             <span> </span>
           </div>
         </div>
@@ -48,9 +84,8 @@ export default function EditUser() {
                     type="text"
                     className="form-control"
                     name="firstName"
-                    value={state.user.firstName}
+                    placeholder={user.firstname}
                     id="edfname"
-                    onChange={onChange}
                   />
                 </div>
               </div>
@@ -62,23 +97,8 @@ export default function EditUser() {
                     type="text"
                     className="form-control"
                     name="lastName"
-                    value={state.user.lastName}
+                    placeholder={user.lastname}
                     id="edfname"
-                    onChange={onChange}
-                  />
-                </div>
-              </div>
-
-              <div className="row mt-2">
-                <div className="col-md-10">
-                  <label className="labels">Email</label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    name="email"
-                    value={state.user.email}
-                    id="edemail"
-                    onChange={onChange}
                   />
                 </div>
               </div>

@@ -5,7 +5,7 @@ import axios from "axios";
 import { useEffect, useState, useReducer } from "react";
 import { useAuthState, useAuthDispatch } from "../../Context/context";
 import { useNavigate } from "react-router-dom";
-import { CHANGE_BOARD } from "../../Context/actions";
+import { CHANGE_BOARD, DONE } from "../../Context/actions";
 const defaultState = {
   boardId: "",
 };
@@ -33,7 +33,7 @@ export default function SideNav() {
   }, []);
   useEffect(() => {
     getBoards();
-  }, []);
+  }, [appState]);
   async function getBoards() {
     try {
       const url = "http://127.0.0.1:8000/api/boards";
@@ -89,41 +89,47 @@ export default function SideNav() {
               if (user === userId) {
                 return (
                   <li key={name}>
-                    <ul className="list-inline m-0">
-                      <a
-                        className="list-inline-item"
-                        onClick={() => {
-                          appDispatch({ type: CHANGE_BOARD, payload: { _id } });
-                        }}
-                      >
-                        {name}
-                      </a>
-                      <li className="list-inline-item">
-                        <button
-                          className="btn btn-success btn-sm rounded-0"
-                          type="button"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Edit"
-                        >
-                          <i className="fa fa-edit"></i>
-                        </button>
-                      </li>
-                      <li className="list-inline-item">
-                        <button
-                          className="btn btn-danger btn-sm rounded-0"
-                          type="button"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          title="Delete"
+                    <div>
+                      <ul className="list-inline m-0 d-flex justify-content-end">
+                        <a
+                          className="aname me-5"
                           onClick={() => {
-                            handleBoardDelete(userId, _id);
+                            appDispatch({
+                              type: CHANGE_BOARD,
+                              payload: { _id, name },
+                            });
                           }}
                         >
-                          <i className="fa fa-trash"></i>
-                        </button>
-                      </li>
-                    </ul>
+                          {name}
+                        </a>
+                        <li>
+                          <button
+                            className="btn btn-success btn-sm rounded-0"
+                            type="button"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Edit"
+                          >
+                            <i className="fa fa-edit"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="btn btn-danger btn-sm rounded-0"
+                            type="button"
+                            data-toggle="tooltip"
+                            data-placement="top"
+                            title="Delete"
+                            onClick={() => {
+                              handleBoardDelete(userId, _id);
+                              appDispatch({ type: DONE });
+                            }}
+                          >
+                            <i className="fa fa-trash"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
                   </li>
                 );
               }
