@@ -1,6 +1,6 @@
 import { Button, Modal } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useAuthState } from "../../Context/context";
+import { useAuthDispatch, useAuthState } from "../../Context/context";
 import axios from "axios";
 export default function BoardModal() {
   const [show, setShow] = useState(false);
@@ -10,6 +10,7 @@ export default function BoardModal() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const appState = useAuthState();
+
   const token = appState.token;
   useEffect(() => {
     async function getBoards() {
@@ -36,42 +37,10 @@ export default function BoardModal() {
     }
     getUser();
   }, []);
-  async function getBoardId(name) {
-    for (let board of boards) {
-      console.log(board);
-      if (board.name === name) {
-        console.log(board._id);
-        setBoardId(board._id);
-      }
-    }
-  }
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const createLists = (boardId) => {
-    const lists = [
-      "Proposed",
-      "Approved",
-      "In Progress",
-      "Completed",
-      "Tested",
-      "Deployed",
-    ];
-    let position = 0;
-    for (let list of lists) {
-      const url = "http://127.0.0.1:8000/api/lists";
-      const data = {
-        name: list,
-        boardId,
-        position,
-      };
-      const req = async () => {
-        await axios.post(url, data);
-      };
-      req();
-      position += 1;
-    }
-  };
+
   const handleSave = (e) => {
     e.preventDefault();
 
@@ -86,10 +55,7 @@ export default function BoardModal() {
     };
     req();
 
-    getBoardId(name);
-    console.log(boardId);
-    createLists(boardId);
-    // setShow(false);
+    setShow(false);
   };
   const handleOnchange = (e) => {
     setName(e.target.value);

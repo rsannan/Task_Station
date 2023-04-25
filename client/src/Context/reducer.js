@@ -4,6 +4,7 @@ import {
   ON_CHANGE,
   REMOVE_TASK,
   SIGN_UP,
+  CHANGE_BOARD,
 } from "./actions";
 import axios from "axios";
 import { useAuthDispatch } from "./context";
@@ -24,16 +25,8 @@ export default function reducer(state, action) {
     };
   }
 
-  if (action.type === EDIT_USER) {
-    const event = action.payload.e;
-    event.preventDefault();
-    // POST NEW USER DATA
-    return state;
-  }
-  if (action.type === ADD_TASK) {
-    const event = action.payload.e;
-    event.preventDefault();
-    // POST TASK DATA
-    return state;
+  if (action.type === CHANGE_BOARD) {
+    const boardId = action.payload._id;
+    return { ...state, boardId };
   }
 }

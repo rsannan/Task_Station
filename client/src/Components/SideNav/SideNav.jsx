@@ -1,12 +1,21 @@
 import "./sidenav.css";
 import BoardModal from "../Modals/BoardModal";
+import reducer from "../../Context/reducer";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { useAuthState } from "../../Context/context";
+import { useEffect, useState, useReducer } from "react";
+import { useAuthState, useAuthDispatch } from "../../Context/context";
+import { useNavigate } from "react-router-dom";
+import { CHANGE_BOARD } from "../../Context/actions";
+const defaultState = {
+  boardId: "",
+};
 export default function SideNav() {
+  const navigate = useNavigate();
   const appState = useAuthState();
+  const appDispatch = useAuthDispatch();
   const [boards, setBoards] = useState([]);
   const [user, setUser] = useState({});
+  const [state, dispatch] = useReducer(reducer, defaultState);
   useEffect(() => {
     async function getUser() {
       try {
@@ -22,7 +31,9 @@ export default function SideNav() {
     }
     getUser();
   }, []);
-
+  useEffect(() => {
+    getBoards();
+  }, []);
   async function getBoards() {
     try {
       const url = "http://127.0.0.1:8000/api/boards";
@@ -31,7 +42,6 @@ export default function SideNav() {
       setBoards(data);
     } catch (error) {}
   }
-  getBoards();
 
   const userId = user._id;
   async function handleBoardDelete(userId, boardId) {
@@ -80,7 +90,14 @@ export default function SideNav() {
                 return (
                   <li key={name}>
                     <ul className="list-inline m-0">
-                      <a className="list-inline-item">{name}</a>
+                      <a
+                        className="list-inline-item"
+                        onClick={() => {
+                          appDispatch({ type: CHANGE_BOARD, payload: { _id } });
+                        }}
+                      >
+                        {name}
+                      </a>
                       <li className="list-inline-item">
                         <button
                           className="btn btn-success btn-sm rounded-0"

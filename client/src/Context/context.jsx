@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 const AuthStateContext = createContext();
 const AuthDispatchContext = createContext();
-import { LOGIN, LOGOUT } from "./actions";
+import { LOGIN, LOGOUT, CHANGE_BOARD, DONE } from "./actions";
 
 export function useAuthState() {
   const context = useContext(AuthStateContext);
@@ -25,6 +25,7 @@ let token = sessionStorage.getItem("token")
   : "";
 export const defaultState = {
   token: token,
+  boardId: "",
 };
 
 export function AuthReducer(state, action) {
@@ -36,6 +37,13 @@ export function AuthReducer(state, action) {
   if (action.type === LOGOUT) {
     sessionStorage.clear();
     return { ...state, token: "" };
+  }
+  if (action.type === CHANGE_BOARD) {
+    const boardId = action.payload._id;
+    return { ...state, boardId };
+  }
+  if (action.type === DONE) {
+    return { ...state };
   }
 }
 
