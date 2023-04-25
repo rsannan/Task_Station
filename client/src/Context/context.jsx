@@ -20,20 +20,22 @@ export function useAuthDispatch() {
 
   return context;
 }
-
+let token = sessionStorage.getItem("token")
+  ? sessionStorage.getItem("token")
+  : "";
 export const defaultState = {
-  email: "",
-  token: "",
+  token: token,
 };
 
 export function AuthReducer(state, action) {
-  if (action.type === LOGOUT) {
-    return { ...state, email: "", token: "" };
-  }
-
   if (action.type === LOGIN) {
-    const data = action.payload.data;
-    return { ...state, email: data.email, token: data.token };
+    const token = sessionStorage.getItem("token");
+
+    return { ...state, token };
+  }
+  if (action.type === LOGOUT) {
+    sessionStorage.clear();
+    return { ...state, token: "" };
   }
 }
 

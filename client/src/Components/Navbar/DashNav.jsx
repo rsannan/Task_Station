@@ -5,7 +5,6 @@ export default function DashNav() {
   const dispatch = useAuthDispatch();
   const state = useAuthState();
   const navigate = useNavigate();
-  console.log(state);
   function editClick() {
     navigate("/edituser");
   }

@@ -4,6 +4,7 @@ import reducer from "../../Context/reducer";
 import { LOGIN, ON_CHANGE } from "../../Context/actions";
 import { useAuthDispatch } from "../../Context/context";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./signin.css";
 
 const defaultState = {
@@ -16,14 +17,29 @@ export default function SignInForm() {
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
   }
-
+  async function postData(url, data) {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    try {
+      const response = await axios
+        .post(url, data, { headers })
+        .then((response) => {
+          sessionStorage.setItem("token", response.data.token);
+        });
+      appDispatch({ type: LOGIN });
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  }
   function onSubmit(e) {
     e.preventDefault();
-    const email = e.target[0].value;
-    const token = "123456";
-    const data = { email, token };
-    appDispatch({ type: LOGIN, payload: { data } });
-    navigate("/dashboard");
+    const username = state.user.email;
+    const password = state.user.password;
+    const data = { username, password };
+    postData("http://127.0.0.1:8000/api/users/login", data);
+    console.log(sessionStorage.getItem("token"));
   }
   return (
     <section className="vh-100 signinimg">

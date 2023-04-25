@@ -5,6 +5,7 @@ import {
   REMOVE_TASK,
   SIGN_UP,
 } from "./actions";
+import axios from "axios";
 import { useAuthDispatch } from "./context";
 
 export default function reducer(state, action) {
@@ -21,12 +22,6 @@ export default function reducer(state, action) {
       ...state,
       user: { ...state.user, [event.target.name]: event.target.value },
     };
-  }
-  if (action.type === SIGN_UP) {
-    const event = action.payload.e;
-    event.preventDefault();
-    // POST DATA AND RETURN TO SIGN UP PAGE
-    return state;
   }
 
   if (action.type === EDIT_USER) {

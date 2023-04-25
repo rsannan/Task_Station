@@ -4,6 +4,7 @@ import reducer from "../../Context/reducer";
 import { ON_CHANGE, SIGN_UP } from "../../Context/actions";
 import { useNavigate } from "react-router-dom";
 import "./signup.css";
+import axios from "axios";
 
 const defaultState = {
   user: { firstName: "", lastName: "", email: "", password: "" },
@@ -11,13 +12,33 @@ const defaultState = {
 
 export default function SignUpForm() {
   const [state, dispatch] = useReducer(reducer, defaultState);
-  const navigate = useNavigate;
+  const navigate = useNavigate();
+  async function postData(url, data) {
+    const headers = {
+      "Content-Type": "application/json",
+    };
+    try {
+      const response = await axios.post(url, data, { headers });
+      navigate("/login");
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
 
   function onChange(e) {
     dispatch({ type: ON_CHANGE, payload: { e } });
   }
   async function onSubmit(e) {
-    dispatch({ type: SIGN_UP, payload: { e } });
+    const event = e;
+    event.preventDefault();
+    const data = {
+      firstname: event.target[0].value,
+      lastname: event.target[1].value,
+      username: event.target[2].value,
+      password: event.target[3].value,
+      confirmPassword: event.target[3].value,
+    };
+    postData("http://127.0.0.1:8000/api/users/register", data);
   }
   return (
     <section className="vh-100 signupimg">

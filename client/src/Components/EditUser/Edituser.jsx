@@ -1,12 +1,9 @@
 import { useReducer } from "react";
 import reducer from "../../Context/reducer";
 import { ON_CHANGE, EDIT_USER } from "../../Context/actions";
-import { useFetchUser } from "../../Context/customHooks";
 
-const data = useFetchUser();
-const { firstName, lastName, email, password } = data;
 const defaultState = {
-  user: { firstName, lastName, email, password },
+  user: { firstName: "", lastName: "", email: "", password: "" },
 };
 export default function EditUser() {
   const [state, dispatch] = useReducer(reducer, defaultState);
