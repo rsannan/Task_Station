@@ -1,11 +1,39 @@
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import "./cardmodal.css";
+import axios from "axios";
+import { useAuthState } from "../../Context/context";
 
-export default function CardModal() {
+export default function CardModal(props) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { listId, position } = props;
+  const appState = useAuthState();
+  function handleOnSubmit(e) {
+    e.preventDefault();
+    const url = "http://127.0.0.1:8000/api/cards";
+    const name = e.target.title.value;
+    const description = e.target.description.value;
+    const dueDate = e.target.date.value + "T" + e.target.time.value;
+    const config = {
+      headers: {
+        "x-auth-token": appState.token,
+      },
+    };
+    const data = {
+      name,
+      description,
+      position,
+      listId,
+      dueDate,
+    };
+    const req = async () => {
+      await axios.post(url, data, config);
+    };
+    req();
+    setShow(false);
+  }
   return (
     <>
       <div className="modaldiv">
@@ -19,7 +47,7 @@ export default function CardModal() {
             <Modal.Title>Add Card</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <form>
+            <form onSubmit={handleOnSubmit}>
               <div className="row mt-2">
                 <div className="col-md-12">
                   <label className="labels">Title</label>

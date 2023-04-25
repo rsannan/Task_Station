@@ -8,6 +8,7 @@ import CardModal from "../Modals/CardModal";
 import ListModal from "../Modals/ListModal";
 import { useAuthState, useAuthDispatch } from "../../Context/context";
 import { DONE } from "../../Context/actions";
+import Cards from "../Card/Cards";
 export default function Dashboard() {
   const navigate = useNavigate();
   const [lists, setLists] = useState([]);
@@ -69,7 +70,8 @@ export default function Dashboard() {
                     </button>
                   </div>
                   <hr />
-                  <CardModal />
+                  <Cards listId={_id} />
+                  <CardModal listId={_id} position={position} />
                 </div>
               </div>
             </div>
