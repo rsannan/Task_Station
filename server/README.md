@@ -12,11 +12,11 @@ npm install
 
 Create a .env file at the root of the project and add the following variables:
 ```
-JWT_SECRET_KEY=<Your-JWT-SECRET_KEY>
+JWT_SECRET_KEY=<Your-JWT_SECRET_KEY>
 DATABASE_URI=<Your-MONGO_DB_URL>
 ```
 
-Replace `<Your-MONGO_DB_URL>` with the URI for your MongoDB database and `<Your-MONGO_DB_URL>` with the secret JWT key you want to use.
+Replace `<Your-MONGO_DB_URL>` with the URI for your MongoDB database and `<Your-JWT_SECRET_KEY>` with the secret JWT key you want to use.
 
 Finally, run the following command to start the API server:
 ```
