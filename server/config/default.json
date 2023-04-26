@@ -1,0 +1,6 @@
+{
+  "db": "",
+  "port": 8000,
+  "jwtSecretKey": "",
+  "refreshTokenTimeAllowed": 5
+}
