@@ -72,4 +72,4 @@ Once the server is running, you can make requests to the API endpoints using a t
 
 
 ## Credits
-This project was developed by [Isaac Takiyara Knayiti] and [Reginald Shawn Annan] as a portfolio project for a software engineering course taken at ALX.
+This project was developed by **Isaac Takiyara Knayiti** and **Reginald Shawn Annan** as a portfolio project for ALX SE Specialization.
