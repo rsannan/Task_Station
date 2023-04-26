@@ -4,8 +4,9 @@ It was developed as a portfolio project for a software engineering course taken 
 
 The Application allows users to create and manage boards filled with lists and cards similar to Trello board
 
-##Back-end Usage:
-###Installation
+## Back-end Usage:
+
+### Installation
 To use this API, you must have Node.js and MongoDB installed on your system. After cloning this repository, run the following command in the terminal to install the required dependencies:
 
 ```
@@ -28,8 +29,9 @@ npm start
 Once the server is running, you can make requests to the API endpoints using a tool like Postman or cURL. Here are some examples of the endpoints you can use:
 
 
-##Front-End Usage:
-###Installation
+## Front-End Usage:
+
+### Installation
 To start up the front-end enter the client directory from the root and then:
 
 ```
