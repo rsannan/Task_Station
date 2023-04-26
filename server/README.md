@@ -1,4 +1,4 @@
-# Trello Board Clone API
+# Task Station (Trello Board Clone API)
 This project is basically a Trello board clone API developed using Node.js, Express, and MongoDB. It was developed as a portfolio project for a software engineering course taken at ALX Africa.
 
 The API allows users to create and manage boards, lists, and cards, which are the basic features of a Trello board. The endpoints exposed by the API can be used to create, read, update, and delete boards, lists, and cards.
