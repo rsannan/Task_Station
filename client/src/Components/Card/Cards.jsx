@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAuthState, useAuthDispatch } from "../../Context/context";
 import axios from "axios";
 import "./cards.css";
+import CardDescription from "../Modals/CardDesription";
 export default function Cards(props) {
   const { listId } = props;
   const appState = useAuthState();
@@ -40,11 +41,15 @@ export default function Cards(props) {
   return (
     <>
       {cards.map((card) => {
-        const { name, _id } = card;
+        const { name, _id, description, dueDate } = card;
         return (
           <div key={_id} className="card">
             <ul className="list-inline m-0 justify-content-end d-flex">
-              <a>{name}</a>
+              <CardDescription
+                name={name}
+                description={description}
+                dueDate={dueDate}
+              />
               <li>
                 <button
                   className="btn btn-success btn-sm rounded-0 ms-5"
