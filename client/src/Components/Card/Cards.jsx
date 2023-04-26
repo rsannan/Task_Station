@@ -50,9 +50,9 @@ export default function Cards(props) {
                 description={description}
                 dueDate={dueDate}
               />
-              <li>
+              <li className="hovhide">
                 <button
-                  className="btn btn-success btn-sm rounded-0 ms-5"
+                  className="btn btn-success btn-sm rounded-0 ms-5 "
                   type="button"
                   data-toggle="tooltip"
                   data-placement="top"
@@ -61,9 +61,9 @@ export default function Cards(props) {
                   <i className="fa fa-edit"></i>
                 </button>
               </li>
-              <li>
+              <li className="hovhide">
                 <button
-                  className="btn btn-danger btn-sm rounded-0"
+                  className="btn btn-danger btn-sm rounded-0 "
                   type="button"
                   data-toggle="tooltip"
                   data-placement="top"
