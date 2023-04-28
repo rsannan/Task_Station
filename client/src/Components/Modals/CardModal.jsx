@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./cardmodal.css";
 import axios from "axios";
 import { useAuthState, useAuthDispatch } from "../../Context/context";
+import { DONE } from "../../Context/actions";
 
 export default function CardModal(props) {
   const [show, setShow] = useState(false);

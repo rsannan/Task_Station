@@ -30,6 +30,7 @@ export default function SignInForm() {
       appDispatch({ type: LOGIN });
       navigate("/dashboard");
     } catch (error) {
+      alert(error.response.data.message);
       console.log(error);
     }
   }

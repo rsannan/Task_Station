@@ -56,6 +56,7 @@ export default function SideNav() {
     };
 
     const response = await axios.delete(url, config);
+    appDispatch({ type: DONE });
   }
   return (
     <nav
