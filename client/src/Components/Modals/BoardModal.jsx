@@ -35,6 +35,7 @@ export default function BoardModal() {
         const response = await axios.get(url, config);
         const data = await response.data;
         setUser(data.user);
+        console.log(user);
       } catch (error) {}
     }
     getUser();
