@@ -8,8 +8,8 @@ export default function StandardNav() {
           </a>
         </li>
         <li className="navbar-item ms-4">
-          <a href="/login" className="nav-link active text-white">
-            Sign-In
+          <a href="/signup" className="nav-link active text-white">
+            Sign-Up
           </a>
         </li>
       </ul>
