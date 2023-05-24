@@ -1,0 +1,4 @@
+{
+    "db": "mongodb://0.0.0.0/task_station", 
+    "port": 8000
+}
